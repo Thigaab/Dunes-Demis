@@ -1,4 +1,5 @@
 import {
+  Download,
   Flag,
   HeartHandshake,
   MapPinned,
@@ -7,7 +8,6 @@ import {
   Wrench,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { siFacebook, siInstagram, siYoutube } from "simple-icons";
 
 type SocialIcon = {
@@ -91,10 +91,12 @@ const crewMembers = [
 ];
 
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com", icon: siInstagram },
+  { label: "Instagram", href: "https://www.instagram.com/dunes.demis/", icon: siInstagram },
   { label: "Facebook", href: "https://facebook.com", icon: siFacebook },
   { label: "YouTube", href: "https://youtube.com", icon: siYoutube },
 ];
+
+const teamInstagramLink = "https://www.instagram.com/dunes.demis/";
 
 function SocialIconSvg({ icon }: { icon: SocialIcon }) {
   return (
@@ -111,32 +113,61 @@ export default function Home() {
         <section className="adventure-panel relative overflow-hidden rounded-4xl p-8 shadow-lg md:p-14">
           <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-[#f6bf96]/40 blur-3xl" />
           <div className="absolute bottom-0 left-10 h-52 w-52 rounded-full bg-[#f4dbb9]/45 blur-3xl" />
-          <div className="relative grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-end">
-            <div className="space-y-5">
-              <p className="inline-flex rounded-full border border-[#c5ab88] bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-[#5d4633] uppercase">
-                4L Trophy 2027
-              </p>
-              <h1 className="font-display max-w-xl text-5xl leading-[1.02] tracking-tight text-[#2f2418] sm:text-6xl">
-                Dunes & Demis
-              </h1>
-              <p className="max-w-xl text-lg leading-relaxed text-[#5d4633]">
-                Une equipe, une 4L et un cap: traverser le desert pour une aventure solidaire,
-                humaine et sportive.
-              </p>
-              <Link
-                href="/#mission"
-                className="inline-flex items-center rounded-full bg-[#2f2418] px-6 py-3 text-sm font-semibold tracking-wider text-[#fdf5e8] transition hover:bg-[#443424]"
-              >
-                Decouvrir la mission
-              </Link>
+          <div className="relative grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-stretch">
+            <div className="flex h-full flex-col justify-between gap-6">
+              <div className="rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm">
+                <p className="inline-flex rounded-full border border-[#c5ab88] bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-[#5d4633] uppercase">
+                  4L Trophy 2027
+                </p>
+                <h1 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight text-[#2f2418] sm:text-5xl">
+                  Dunes & Demis
+                </h1>
+                <p className="mt-4 text-base leading-relaxed text-[#5d4633] sm:text-lg">
+                  Une equipe, une 4L et un cap: traverser le desert pour une aventure solidaire,
+                  humaine et sportive.
+                </p>
+              </div>
+              <div className="flex flex-row items-center gap-4">
+                <a
+                  href={teamInstagramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-3 rounded-2xl border border-[#cfb290] bg-white/80 px-4 py-3 text-[#5d4633] transition hover:bg-[#f8e1c9]"
+                >
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#c8ae8d] bg-white text-[#6b5039]">
+                    <SocialIconSvg icon={siInstagram} />
+                  </span>
+                  <span className="text-sm font-medium">Viens suivre nos aventures en direct !</span>
+                </a>
+                <a
+                  href="/dossier-sponsoring.pdf"
+                  download
+                  className="group relative inline-flex w-fit items-center gap-2 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf]"
+                >
+                  <span className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_55%)] opacity-0 transition group-hover:opacity-100" />
+                  <Download className="relative h-4 w-4" strokeWidth={2.4} />
+                  <span className="relative">Notre dossier de sponsoring !</span>
+                </a>
+              </div>
             </div>
-            <div className="rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm">
-              <p className="text-xs font-semibold tracking-[0.2em] text-[#7e6648] uppercase">
-                Cap aventure
-              </p>
-              <p className="mt-4 text-2xl font-semibold text-[#2f2418]">
-                6 000 km de route, de dunes et de rencontres.
-              </p>
+            <div className="space-y-4">
+              <div className="relative min-h-55 overflow-hidden rounded-3xl border border-[#d6bc99] bg-white/70 shadow-md">
+                <Image
+                  src="/crew-team.svg"
+                  alt="Photo de l'equipe Dunes & Demis"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 380px, 100vw"
+                />
+              </div>
+              <div className="rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm">
+                <p className="text-xs font-semibold tracking-[0.2em] text-[#7e6648] uppercase">
+                  Cap aventure
+                </p>
+                <p className="mt-4 text-2xl font-semibold text-[#2f2418]">
+                  6 000 km de route, de dunes et de rencontres.
+                </p>
+              </div>
             </div>
           </div>
         </section>

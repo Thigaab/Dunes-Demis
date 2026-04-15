@@ -1,0 +1,11 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="28" fill="#F8E7CF"/>
+  <path d="M100 250C210 190 280 230 360 190C430 155 510 95 610 120C690 140 760 225 860 210C940 198 1000 140 1100 102" stroke="#A86845" stroke-width="14" stroke-linecap="round" stroke-dasharray="20 18"/>
+  <circle cx="100" cy="250" r="26" fill="#8C5235"/>
+  <circle cx="1100" cy="102" r="26" fill="#8C5235"/>
+  <circle cx="610" cy="120" r="18" fill="#C98D63"/>
+  <text x="100" y="304" text-anchor="middle" fill="#5D4633" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700">Depart</text>
+  <text x="1100" y="156" text-anchor="middle" fill="#5D4633" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="700">Arrivee</text>
+  <text x="600" y="332" text-anchor="middle" fill="#7E6648" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="700">Trace 4L Trophy</text>
+</svg>
+
