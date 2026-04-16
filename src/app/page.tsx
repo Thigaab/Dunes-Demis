@@ -25,13 +25,23 @@ const missionItems = [
   {
     title: "Volet humanitaire",
     description:
-      "Acheminer des fournitures scolaires et sportives aux enfants du desert marocain.",
+      "Plus qu'un simple don, notre mission est d'apporter les outils de la réussite. En partenariat avec l'association Enfants du Désert, nous acheminons des kits scolaires et sportifs complets. Chaque kilomètre parcouru nous rapproche de notre objectif : soutenir l'éducation et améliorer le quotidien des enfants vivant dans les zones les plus isolées du désert marocain.",
+    stats: [
+      "🎒 +20 000 enfants aides chaque annee.",
+      "🏫 28 salles de classe construites depuis la creation du raid.",
+      "📦 50 kg de materiel par voiture.",
+    ],
     icon: HeartHandshake,
   },
   {
     title: "Defi sportif",
     description:
-      "Parcourir les dunes en 4L avec une navigation a l'ancienne, sans GPS et en equipe.",
+      "Le désert ne se traverse pas seul. Sans GPS, à l'aide d'une simple boussole et d'un roadbook, nous redécouvrons la solidarité mécanique. Ici, le chronomètre n'existe pas : la victoire, c'est d'arriver ensemble au bivouac, d'aider un équipage ensablé et de partager les ressources face aux imprévus des pistes marocaines.",
+    stats: [
+      "🗺️ 0 GPS autorises.",
+      "🏜️ 6 000 km de routes et pistes.",
+      "🤝 1 500 equipages unis dans l'effort.",
+    ],
     icon: Flag,
   },
 ];
@@ -183,11 +193,21 @@ export default function Home() {
               return (
                 <article
                   key={item.title}
-                  className="adventure-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
+                  className="adventure-card ui-card flex h-full flex-col rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
                 >
                   <Icon className="mb-4 h-9 w-9 text-[#8c5235]" strokeWidth={2.2} />
                   <h3 className="font-display text-2xl text-[#2f2418]">{item.title}</h3>
                   <p className="mt-3 text-[#5d4633]">{item.description}</p>
+                  <ul className="mt-auto pt-4 space-y-2">
+                    {item.stats.map((stat) => (
+                      <li
+                        key={`${item.title}-${stat}`}
+                        className="ui-tag rounded-xl border border-[#cfb290] bg-white/75 px-3 py-2 text-sm text-[#5d4633]"
+                      >
+                        {stat}
+                      </li>
+                    ))}
+                  </ul>
                 </article>
               );
             })}
@@ -204,7 +224,7 @@ export default function Home() {
               return (
                 <article
                   key={member.name}
-                  className="adventure-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm md:p-7"
+                  className="adventure-card ui-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm md:p-7"
                 >
                   <div className="mx-auto mb-6 w-full max-w-sm">
                     <div className="relative aspect-4/5 overflow-hidden rounded-3xl border border-[#cfb290] bg-[#f8e1c9] shadow-md">
@@ -229,7 +249,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${social.label} de ${member.name}`}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#c8ae8d] bg-white/85 text-[#6b5039] transition hover:bg-[#f8e1c9] hover:text-[#3f2e1f]"
+                        className="ui-icon-btn inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#c8ae8d] bg-white/85 text-[#6b5039] transition hover:bg-[#f8e1c9] hover:text-[#3f2e1f]"
                       >
                         <SocialIconSvg icon={social.icon} />
                       </a>
@@ -244,7 +264,7 @@ export default function Home() {
                       {member.passions.map((passion) => (
                         <li
                           key={`${member.name}-${passion}`}
-                          className="rounded-full border border-[#cfb290] bg-white/75 px-3 py-1 text-xs text-[#5d4633]"
+                          className="ui-tag rounded-full border border-[#cfb290] bg-white/75 px-3 py-1 text-xs text-[#5d4633]"
                         >
                           {passion}
                         </li>
@@ -268,7 +288,7 @@ export default function Home() {
               return (
                 <li
                   key={step.title}
-                  className="adventure-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
+                  className="adventure-card ui-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
                 >
                   <p className="text-xs font-semibold tracking-[0.17em] text-[#8c5235] uppercase">
                     {step.date}
@@ -301,7 +321,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#c8ae8d] bg-white/80 text-[#5d4633] transition hover:bg-[#f8e1c9] hover:text-[#3f2e1f]"
+                    className="ui-icon-btn inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#c8ae8d] bg-white/80 text-[#5d4633] transition hover:bg-[#f8e1c9] hover:text-[#3f2e1f]"
                   >
                     <SocialIconSvg icon={social.icon} />
                   </a>
