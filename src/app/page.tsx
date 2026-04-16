@@ -142,10 +142,10 @@ export default function Home() {
                 <a
                   href="/dossier-sponsoring.pdf"
                   download
-                  className="group relative inline-flex w-fit items-center gap-2 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf]"
+                  className="group relative inline-flex w-fit items-center gap-4 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf]"
                 >
                   <span className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_55%)] opacity-0 transition group-hover:opacity-100" />
-                  <Download className="relative h-4 w-4" strokeWidth={2.4} />
+                  <Download className="relative" strokeWidth={2.4} />
                   <span className="relative">Notre dossier de sponsoring !</span>
                 </a>
               </div>
