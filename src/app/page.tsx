@@ -107,12 +107,12 @@ export default function Home() {
                   humaine et sportive.
                 </p>
               </div>
-              <div className="flex flex-row items-center gap-4">
+              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
                 <a
                   href={teamInstagramLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-3 rounded-2xl border border-[#cfb290] bg-white/80 px-4 py-3 text-[#5d4633] transition hover:bg-[#f8e1c9]"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-[#cfb290] bg-white/80 px-4 py-3 text-[#5d4633] transition hover:bg-[#f8e1c9] sm:w-fit"
                 >
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#c8ae8d] bg-white text-[#6b5039]">
                     <SocialIconSvg icon={siInstagram} />
@@ -122,7 +122,7 @@ export default function Home() {
                 <a
                   href="/dossier-sponsoring.pdf"
                   download
-                  className="group relative inline-flex w-fit items-center gap-4 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf]"
+                  className="group relative inline-flex w-full items-center justify-center gap-4 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf] sm:w-fit"
                 >
                   <span className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_55%)] opacity-0 transition group-hover:opacity-100" />
                   <Download className="relative" strokeWidth={2.4} />
