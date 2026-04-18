@@ -2,12 +2,9 @@ import {
   Download,
   Flag,
   HeartHandshake,
-  MapPinned,
-  Rocket,
-  Trophy,
-  Wrench,
 } from "lucide-react";
 import Image from "next/image";
+import { Timeline } from "./components/timeline";
 import { siFacebook, siInstagram, siYoutube } from "simple-icons";
 
 type SocialIcon = {
@@ -46,38 +43,11 @@ const missionItems = [
   },
 ];
 
-const timelineSteps = [
-  {
-    title: "Preparation mecanique",
-    date: "Mai 2026",
-    detail: "Revision complete de la 4L, securite et entrainement en terrain mixte.",
-    icon: Wrench,
-  },
-  {
-    title: "Collecte solidaire",
-    date: "Juin - Septembre 2026",
-    detail: "Partenariats locaux, events de soutien et collecte de materiel scolaire.",
-    icon: Trophy,
-  },
-  {
-    title: "Roadbook & logistique",
-    date: "Octobre 2026",
-    detail: "Finalisation de l'itineraire, bivouac, check des papiers et des equipements.",
-    icon: MapPinned,
-  },
-  {
-    title: "Depart 4L Trophy",
-    date: "Fevrier 2027",
-    detail: "Grand depart vers le Maroc pour porter notre mission au coeur du rallye.",
-    icon: Rocket,
-  },
-];
-
 const crewMembers = [
   {
     name: "Thibaut",
     role: "Pilote",
-    photo: "/crew-thibaut.svg",
+    photo: "/thibaut.webp",
     photoAlt: "Portrait de Thibaut, pilote de l'equipage Dunes & Demis",
     bio: "Passionne de route et de mecanique, il garde le cap dans les passages exigeants.",
     passions: ["Automobile", "Montagne", "Toulouse🩷"],
@@ -89,7 +59,7 @@ const crewMembers = [
   {
     name: "Elouan",
     role: "Pilote",
-    photo: "/crew-elouan.svg",
+    photo: "/elouan.webp",
     photoAlt: "Portrait de Elouan, pilote de l'equipage Dunes & Demis",
     bio: "Stratege du roadbook, il anticipe chaque etape pour allier precision et endurance.",
     passions: ["Sport", "Technologies", "Toulouse 🩷"],
@@ -226,15 +196,17 @@ export default function Home() {
                   key={member.name}
                   className="adventure-card ui-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm md:p-7"
                 >
-                  <div className="mx-auto mb-6 w-full max-w-sm">
-                    <div className="relative aspect-4/5 overflow-hidden rounded-3xl border border-[#cfb290] bg-[#f8e1c9] shadow-md">
-                      <Image
-                        src={member.photo}
-                        alt={member.photoAlt}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 360px, 100vw"
-                      />
+                  <div className="mx-auto mb-6 w-full max-w-[17rem]">
+                    <div className="rounded-[2rem] border border-[#d4b08a] bg-linear-to-b from-[#f8e7d1] to-[#ecd0ad] p-2 shadow-[0_10px_24px_rgba(117,78,45,0.18)]">
+                      <div className="relative aspect-4/5 overflow-hidden rounded-[1.55rem] border border-[#cfb290] bg-[#f8e1c9] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]">
+                        <Image
+                          src={member.photo}
+                          alt={member.photoAlt}
+                          fill
+                          className="object-cover"
+                          sizes="(min-width: 768px) 300px, 72vw"
+                        />
+                      </div>
                     </div>
                   </div>
                   <h3 className="font-display text-2xl text-[#2f2418]">{member.name}</h3>
@@ -277,40 +249,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="space-y-6">
-          <div className="space-y-2">
-            <p className="adventure-kicker">Timeline</p>
-            <h2 className="font-display text-4xl text-[#2f2418]">Preparation de l&apos;equipage</h2>
-          </div>
-          <ol className="relative grid gap-4 md:grid-cols-2">
-            {timelineSteps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <li
-                  key={step.title}
-                  className="adventure-card ui-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
-                >
-                  <p className="text-xs font-semibold tracking-[0.17em] text-[#8c5235] uppercase">
-                    {step.date}
-                  </p>
-                  <div className="mt-4 flex items-start gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f8e1c9] text-[#7a4a31]">
-                      <Icon className="h-5 w-5" strokeWidth={2.2} />
-                    </span>
-                    <div>
-                      <h3 className="font-display text-2xl text-[#2f2418]">{step.title}</h3>
-                      <p className="mt-2 text-[#5d4633]">{step.detail}</p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-        </section>
+        <Timeline />
       </main>
 
-      <footer className="mt-6 border-t border-[#d9c1a1] bg-[#f4dbb9]/35">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 md:px-10">
+      <footer className="relative mt-6 overflow-hidden border-t border-[#d1b08a] bg-linear-to-r from-[#f3d5ad] via-[#f0cfa3] to-[#eabf8f] shadow-[inset_0_1px_0_rgba(255,255,255,0.55)]">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.24),transparent_40%)]"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6 md:px-10">
           <p className="text-sm text-[#5d4633]">Dunes & Demis - 4L Trophy 2027</p>
           <ul className="flex items-center gap-2">
             {socialLinks.map((social) => {
