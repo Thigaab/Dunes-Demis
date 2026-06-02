@@ -1,10 +1,9 @@
-import {
-  Download,
-  Flag,
-  HeartHandshake,
-} from "lucide-react";
+import { Download, Flag, HeartHandshake } from "lucide-react";
 import Image from "next/image";
 import { Timeline } from "./components/timeline";
+import { Itinerary } from "./components/itinerary";
+import { Stats } from "./components/stats";
+import { ScrollAnimations } from "./components/scroll-animations";
 import { siFacebook, siInstagram, siYoutube } from "simple-icons";
 
 type SocialIcon = {
@@ -89,13 +88,16 @@ function SocialIconSvg({ icon }: { icon: SocialIcon }) {
 export default function Home() {
   return (
     <div className="adventure-shell">
+      <ScrollAnimations />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-18 px-6 py-10 md:px-10 md:py-14">
+
+        {/* ── Hero ── */}
         <section className="adventure-panel relative overflow-hidden rounded-4xl p-8 shadow-lg md:p-14">
-          <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-[#f6bf96]/40 blur-3xl" />
-          <div className="absolute bottom-0 left-10 h-52 w-52 rounded-full bg-[#f4dbb9]/45 blur-3xl" />
+          <div className="blob-drift-a absolute -top-20 right-0 h-56 w-56 rounded-full bg-[#f6bf96]/40 blur-3xl" />
+          <div className="blob-drift-b absolute bottom-0 left-10 h-52 w-52 rounded-full bg-[#f4dbb9]/45 blur-3xl" />
           <div className="relative grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-stretch">
             <div className="flex h-full flex-col justify-between gap-6">
-              <div className="rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm">
+              <div className="reveal rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm">
                 <p className="inline-flex rounded-full border border-[#c5ab88] bg-white/80 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-[#5d4633] uppercase">
                   4L Trophy 2027
                 </p>
@@ -107,14 +109,17 @@ export default function Home() {
                   humaine et sportive.
                 </p>
               </div>
-              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <div
+                className="reveal flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4"
+                style={{ transitionDelay: "120ms" }}
+              >
                 <a
                   href={teamInstagramLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-[#cfb290] bg-white/80 px-4 py-3 text-[#5d4633] transition hover:bg-[#f8e1c9] sm:w-fit"
+                  className="ghost-btn inline-flex w-full items-center justify-center gap-3 rounded-2xl border border-[#cfb290] bg-white/80 px-4 py-3 text-[#5d4633] transition hover:bg-[#f8e1c9] sm:w-fit"
                 >
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#c8ae8d] bg-white text-[#6b5039]">
+                  <span className="ghost-badge inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#c8ae8d] bg-white text-[#6b5039]">
                     <SocialIconSvg icon={siInstagram} />
                   </span>
                   <span className="text-sm font-medium">Viens suivre nos aventures en direct !</span>
@@ -122,7 +127,7 @@ export default function Home() {
                 <a
                   href="/dossier-sponsoring.pdf"
                   download
-                  className="group relative inline-flex w-full items-center justify-center gap-4 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf] sm:w-fit"
+                  className="cta-btn group relative inline-flex w-full items-center justify-center gap-4 overflow-hidden rounded-full bg-linear-to-r from-[#8c5235] via-[#d09062] to-[#f3b88a] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-[0_10px_30px_rgba(140,82,53,0.35)] ring-2 ring-[#f3c99f]/60 transition hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(140,82,53,0.5)] hover:ring-[#f8ddbf] sm:w-fit"
                 >
                   <span className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_55%)] opacity-0 transition group-hover:opacity-100" />
                   <Download className="relative" strokeWidth={2.4} />
@@ -131,7 +136,10 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-4">
-              <div className="relative min-h-55 overflow-hidden rounded-3xl border border-[#d6bc99] bg-white/70 shadow-md">
+              <div
+                className="reveal relative min-h-55 overflow-hidden rounded-3xl border border-[#d6bc99] bg-white/70 shadow-md"
+                style={{ transitionDelay: "90ms" }}
+              >
                 <Image
                   src="/crew-team.svg"
                   alt="Photo de l'equipe Dunes & Demis"
@@ -140,7 +148,10 @@ export default function Home() {
                   sizes="(min-width: 768px) 380px, 100vw"
                 />
               </div>
-              <div className="rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm">
+              <div
+                className="reveal rounded-3xl border border-[#d6bc99] bg-white/70 p-7 backdrop-blur-sm"
+                style={{ transitionDelay: "200ms" }}
+              >
                 <p className="text-xs font-semibold tracking-[0.2em] text-[#7e6648] uppercase">
                   Cap aventure
                 </p>
@@ -152,23 +163,28 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Stats band ── */}
+        <Stats />
+
+        {/* ── Mission ── */}
         <section id="mission" className="space-y-6">
           <div className="space-y-2">
             <p className="adventure-kicker">Mission</p>
             <h2 className="font-display text-4xl text-[#2f2418]">Humanitaire & Sport</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            {missionItems.map((item) => {
+            {missionItems.map((item, index) => {
               const Icon = item.icon;
               return (
                 <article
                   key={item.title}
-                  className="adventure-card ui-card flex h-full flex-col rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
+                  className="adventure-card ui-card reveal flex h-full flex-col rounded-3xl border border-[#d9c1a1] p-6 shadow-sm"
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <Icon className="mb-4 h-9 w-9 text-[#8c5235]" strokeWidth={2.2} />
                   <h3 className="font-display text-2xl text-[#2f2418]">{item.title}</h3>
                   <p className="mt-3 text-[#5d4633]">{item.description}</p>
-                  <ul className="mt-auto pt-4 space-y-2">
+                  <ul className="mt-auto space-y-2 pt-4">
                     {item.stats.map((stat) => (
                       <li
                         key={`${item.title}-${stat}`}
@@ -184,21 +200,26 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Itinéraire ── */}
+        <Itinerary />
+
+        {/* ── Équipage ── */}
         <section id="equipage" className="space-y-6">
           <div className="space-y-2">
             <p className="adventure-kicker">Equipage</p>
             <h2 className="font-display text-4xl text-[#2f2418]">Les deux membres de l&apos;equipe</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            {crewMembers.map((member) => {
+            {crewMembers.map((member, index) => {
               return (
                 <article
                   key={member.name}
-                  className="adventure-card ui-card rounded-3xl border border-[#d9c1a1] p-6 shadow-sm md:p-7"
+                  className="adventure-card ui-card reveal rounded-3xl border border-[#d9c1a1] p-6 shadow-sm md:p-7"
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="mx-auto mb-6 w-full max-w-[17rem]">
-                    <div className="rounded-[2rem] border border-[#d4b08a] bg-linear-to-b from-[#f8e7d1] to-[#ecd0ad] p-2 shadow-[0_10px_24px_rgba(117,78,45,0.18)]">
-                      <div className="relative aspect-4/5 overflow-hidden rounded-[1.55rem] border border-[#cfb290] bg-[#f8e1c9] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]">
+                    <div className="crew-mat rounded-[2rem] border border-[#d4b08a] bg-linear-to-b from-[#f8e7d1] to-[#ecd0ad] p-2 shadow-[0_10px_24px_rgba(117,78,45,0.18)]">
+                      <div className="crew-inner relative aspect-4/5 overflow-hidden rounded-[1.55rem] border border-[#cfb290] bg-[#f8e1c9] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)]">
                         <Image
                           src={member.photo}
                           alt={member.photoAlt}
@@ -213,7 +234,7 @@ export default function Home() {
                   <p className="text-sm font-semibold tracking-[0.14em] text-[#8c5235] uppercase">
                     {member.role}
                   </p>
-                  <div className="mt-4 flex items-center gap-2">
+                  <div className="crew-socials mt-4 flex items-center gap-2">
                     {member.socials.map((social) => (
                       <a
                         key={`${member.name}-${social.label}`}
@@ -249,6 +270,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Timeline ── */}
         <Timeline />
       </main>
 
