@@ -47,3 +47,5 @@ next-env.d.ts
 *.ntvs*
 *.njsproj
 *.sln
+
+design_handoff_site_dynamism/
