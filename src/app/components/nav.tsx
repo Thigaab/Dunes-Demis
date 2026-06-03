@@ -111,14 +111,24 @@ export function Nav() {
         </nav>
 
         {/* Desktop CTA */}
-        <a
-          href="/dossier-sponsoring.pdf"
-          download
-          className="btn-primary hidden md:inline-flex"
-        >
-          <Download className="h-4 w-4" strokeWidth={2.4} />
-          <span>Dossier de sponsoring</span>
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href="https://www.helloasso.com/associations/dunes-demis/formulaires/1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-accent/50 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent-pale hover:border-accent"
+          >
+            Faire un don
+          </a>
+          <a
+            href="/dossier-sponsoring.pdf"
+            download
+            className="btn-primary"
+          >
+            <Download className="h-4 w-4" strokeWidth={2.4} />
+            <span>Dossier de sponsoring</span>
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -139,7 +149,7 @@ export function Nav() {
       <div
         id="mobile-menu"
         className={`overflow-hidden transition-all duration-300 md:hidden ${
-          menuOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'
+          menuOpen ? 'max-h-[22rem] opacity-100' : 'max-h-0 opacity-0'
         }`}
         aria-hidden={!menuOpen}
       >
@@ -155,7 +165,15 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <div className="px-6 py-4">
+        <div className="flex flex-col gap-3 px-6 py-4">
+          <a
+            href="https://www.helloasso.com/associations/dunes-demis/formulaires/1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-accent/50 px-4 py-3 text-sm font-semibold text-accent transition hover:bg-accent-pale hover:border-accent"
+          >
+            Faire un don
+          </a>
           <a
             href="/dossier-sponsoring.pdf"
             download

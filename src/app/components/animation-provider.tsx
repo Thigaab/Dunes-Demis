@@ -34,9 +34,18 @@ export function AnimationProvider() {
       { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
     );
 
-    document.querySelectorAll('.reveal, .reveal-left').forEach((el) => observer.observe(el));
+    const observe = () => {
+      document.querySelectorAll<HTMLElement>('.reveal, .reveal-left').forEach((el) => {
+        if (!el.classList.contains('is-visible')) observer.observe(el);
+      });
+    };
+
+    observe();
+    // Re-scan after hydration of Client Components completes (React 19 timing)
+    const timer = setTimeout(observe, 200);
 
     return () => {
+      clearTimeout(timer);
       cleanup?.();
       observer.disconnect();
     };

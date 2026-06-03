@@ -466,7 +466,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mx-auto grid max-w-2xl gap-5 sm:grid-cols-2">
+          <div className="mx-auto grid max-w-3xl gap-5 sm:grid-cols-3">
             <a
               href="mailto:dunes.demis@gmail.com"
               className="card reveal stagger-1 flex flex-col items-center gap-4 p-8 text-center transition hover:border-accent/40"
@@ -489,6 +489,18 @@ export default function Home() {
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-subtle">Instagram</p>
                 <p className="mt-1 text-sm font-medium text-fg">@dunes.demis</p>
+              </div>
+            </a>
+            <a
+              href="https://www.helloasso.com/associations/dunes-demis/formulaires/1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card flex flex-col items-center gap-4 p-8 text-center transition hover:border-accent/40"
+            >
+              <HeartHandshake className="h-8 w-8 text-accent" strokeWidth={1.8} />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-subtle">Faire un don</p>
+                <p className="mt-1 text-sm font-medium text-fg">Via HelloAsso</p>
               </div>
             </a>
           </div>
