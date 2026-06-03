@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Download } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 const NAV_LINKS = [
@@ -49,6 +49,7 @@ function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -56,20 +57,33 @@ export function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth >= 768) setMenuOpen(false); };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  function handleMobileNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    setMenuOpen(false);
+    handleNavClick(e, href);
+  }
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-border bg-bg/90 py-3.5 shadow-sm backdrop-blur-md'
-          : 'py-5'
+        scrolled || menuOpen
+          ? 'border-b border-border bg-bg/95 shadow-sm backdrop-blur-md'
+          : ''
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 md:px-10">
+      {/* ── Main bar ── */}
+      <div className={`mx-auto flex max-w-6xl items-center justify-between px-6 md:px-10 ${scrolled ? 'py-3.5' : 'py-5'}`}>
         <a
           href="#"
           className="flex items-center gap-2.5 transition-opacity hover:opacity-70"
         >
-          <div className="relative h-10 w-10 shrink-0">
+          <div className="relative h-9 w-9 shrink-0 md:h-10 md:w-10">
             <Image
               src="/logo_sans_fond.png"
               alt="Logo Dunes & Demis"
@@ -77,12 +91,13 @@ export function Nav() {
               className="object-contain"
             />
           </div>
-          <span className="font-display text-xl font-bold tracking-tight text-fg">
+          <span className="font-display text-lg font-bold tracking-tight text-fg md:text-xl">
             Dunes &amp; Demis
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-6 md:flex lg:gap-8" aria-label="Navigation principale">
           {NAV_LINKS.map(({ label, href }) => (
             <a
               key={label}
@@ -95,14 +110,61 @@ export function Nav() {
           ))}
         </nav>
 
+        {/* Desktop CTA */}
         <a
           href="/dossier-sponsoring.pdf"
           download
-          className="btn-primary"
+          className="btn-primary hidden md:inline-flex"
         >
           <Download className="h-4 w-4" strokeWidth={2.4} />
           <span>Dossier de sponsoring</span>
         </a>
+
+        {/* Mobile hamburger */}
+        <button
+          className="icon-btn h-11 w-11 md:hidden"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+        >
+          {menuOpen
+            ? <X className="h-5 w-5" strokeWidth={2} />
+            : <Menu className="h-5 w-5" strokeWidth={2} />
+          }
+        </button>
+      </div>
+
+      {/* ── Mobile menu ── */}
+      <div
+        id="mobile-menu"
+        className={`overflow-hidden transition-all duration-300 md:hidden ${
+          menuOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <nav className="flex flex-col px-6 pb-2" aria-label="Navigation mobile">
+          {NAV_LINKS.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              onClick={(e) => handleMobileNavClick(e, href)}
+              className="flex min-h-[52px] items-center border-b border-border text-base font-medium text-fg transition-colors last:border-0 hover:text-accent"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+        <div className="px-6 py-4">
+          <a
+            href="/dossier-sponsoring.pdf"
+            download
+            className="btn-primary w-full justify-center"
+          >
+            <Download className="h-4 w-4" strokeWidth={2.4} />
+            Dossier de sponsoring
+          </a>
+        </div>
       </div>
     </header>
   );

@@ -140,7 +140,7 @@ export default function Home() {
                   priority
                 />
               </div>
-              <h1 className="font-display text-[4.5rem] font-black leading-[0.88] tracking-tight text-fg sm:text-[6rem] lg:text-[8rem]">
+              <h1 className="font-display text-[3rem] font-black leading-[0.88] tracking-tight text-fg sm:text-[5rem] lg:text-[8rem]">
                 Dunes<br />&amp;&nbsp;Demis
               </h1>
             </div>
