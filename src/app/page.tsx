@@ -1,4 +1,4 @@
-import { Banknote, Download, Flag, Gift, HeartHandshake, Mail, Megaphone, Package, Phone } from "lucide-react";
+import { Banknote, Download, Flag, Gift, HeartHandshake, Mail, Megaphone, Package } from "lucide-react";
 import Image from "next/image";
 import { Timeline } from "./components/timeline";
 import { SandParticles } from "./components/sand-particles";
@@ -475,16 +475,6 @@ export default function Home() {
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-subtle">Email</p>
                 <p className="mt-1 text-sm font-medium text-fg">dunes.demis@gmail.com</p>
-              </div>
-            </a>
-            <a
-              href="tel:+33771706756"
-              className="card reveal stagger-2 flex flex-col items-center gap-4 p-8 text-center transition hover:border-accent/40"
-            >
-              <Phone className="h-8 w-8 text-accent" strokeWidth={1.8} />
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-subtle">Téléphone</p>
-                <p className="mt-1 text-sm font-medium text-fg">07 71 70 67 56</p>
               </div>
             </a>
             <a
