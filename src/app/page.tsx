@@ -466,7 +466,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-3">
+          <div className="mx-auto grid max-w-2xl gap-5 sm:grid-cols-2">
             <a
               href="mailto:dunes.demis@gmail.com"
               className="card reveal stagger-1 flex flex-col items-center gap-4 p-8 text-center transition hover:border-accent/40"
@@ -481,7 +481,7 @@ export default function Home() {
               href={teamInstagramLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="card reveal stagger-3 flex flex-col items-center gap-4 p-8 text-center transition hover:border-accent/40"
+              className="card reveal stagger-2 flex flex-col items-center gap-4 p-8 text-center transition hover:border-accent/40"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true" className="h-8 w-8 fill-current text-accent">
                 <path d={siInstagram.path} />
